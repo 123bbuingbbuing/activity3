@@ -1,0 +1,144 @@
+<div class="container mt-2" *ngIf="contacts">
+  <div class="alert alert-success alert-dismissible fade show" *ngIf="showSuccessDelete" role="alert">
+    Contact information successfuly deleted.
+    <button  #dltScss type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+<button *ngIf="!showContactForm" (click)="showContactForm = !showContactForm; showContactList = !showContactList"
+        class="btn btn-light mb-3 float-right mt-2">
+        <i class="fa fa-plus"></i> <span class="hidden-xs"> &nbsp;Add New Contact</span>
+</button>
+<button *ngIf="showContactForm" (click)="showContactForm = !showContactForm; showContactList = !showContactList"
+        class="btn btn-light mb-3 float-right mt-2">
+        <i class="fa fa-close"></i>
+        <span class="hidden-xs">Cancel</span>
+</button>
+<h2 class="mb-3"> <i class="fa fa-address-book"></i> Contact List</h2>
+
+<div class="card card-body mt-4 mx-auto" style="margin-bottom:20px;" *ngIf="showContactForm">
+  <h2>Add new contact information</h2>
+  <form #contactForm="ngForm">
+    <div class="form-group">
+    <label for="name">Fullname</label>
+    <input [(ngModel)]="contact.name"
+          name="name"
+          [ngClass]="{'is-invalid':contactName.errors && contactName.touched}"
+          type="text" 
+          class="form-control"
+          id="name"
+          #contactName="ngModel"
+          required
+          minlength="2">
+          <div [hidden]="!contactName.errors?.required" class="invalid-feedback"> Fullname is required.</div>
+          <div [hidden]="!contactName.errors?.minlength" class="invalid-feedback"> Must be atleast 2 characters.</div>
+    </div>
+    <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input [(ngModel)]="contact.phone"
+          name="phone"
+          [ngClass]="{'is-invalid':contactPhoneNumber.errors && contactPhoneNumber.touched}"
+          type="text"
+          class="form-control"
+          id="phone"
+          #contactPhoneNumber="ngModel"
+          required
+          minlength="2">
+          <div [hidden]="!contactPhoneNumber.errors?.required" class="invalid-feedback"> Phone number is required.</div>
+          <div [hidden]="!contactPhoneNumber.errors?.minlength" class="invalid-feedback"> Must be atleast 2 characters.</div>
+    </div>
+    <div class="form-group">
+    <label for="username">Username</label>
+    <input [(ngModel)]="contact.username"
+          name="username"
+          [ngClass]="{'is-invalid':contactUsername.errors && contactUsername.touched}"
+          type="text"
+          class="form-control"
+          id="username"
+          #contactUsername="ngModel"
+          required
+          minlength="2">
+          <div [hidden]="!contactUsername.errors?.required" class="invalid-feedback"> Username is required.</div>
+          <div [hidden]="!contactUsername.errors?.minlength" class="invalid-feedback"> Username should be aleast 8 characters.</div>
+    </div>
+    <div class="form-group">
+    <label for="email">Email</label>
+    <input [(ngModel)]="contact.email"
+          name="email"
+          [ngClass]="{'is-invalid':contactEmail.errors && contactEmail.touched}"
+          type="text"
+          class="form-control"
+          id="email"
+          #contactEmail="ngModel"
+          required
+          pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+          <div [hidden]="!contactEmail.errors?.required" class="invalid-feedback"> Email is required.</div>
+          <div [hidden]="!contactEmail.errors?.pattern" class="invalid-feedback"> Email is invalid.</div>
+    </div>
+    <button *ngIf="!isEdit"
+            [disabled]="!contactForm.form.valid"
+            class="btn btn-block btn-light mb-3"
+            (click)="addContact(contact)">
+            Add
+    </button>
+    <button *ngIf="isEdit"
+            [disabled]="!contactForm.form.valid"
+            class="btn btn-block btn-warning mb-3"
+            (click)="updateContact(contact)" >
+            Update
+    </button>
+  </form>
+</div>
+
+<div *ngIf ="showContactList" class="mt-5">
+    <!--  (click)="removeContact(contact)" -->
+    <table class="table" >
+        <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Name</th>
+              <th scope="col">Phone Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let contact of contacts" class="table-light">
+              <td>
+                <button
+                    data-toggle="modal" data-target="#removeContact"
+                    class="btn btn-light mr-3" (click)="passDataToMdl(contact)">
+                  <i class="fa fa-remove"></i>
+                  
+                </button>
+                <button
+                (click)="editContact(contact)"
+                class="btn btn-pink-dan mr-3">
+                <i class="fa fa-pencil"></i>
+                </button>
+              </td>
+              <td> <a class="text-info" routerLink="/contact-info/{{contact.id}}">{{contact.name}}</a> </td>
+              <td> {{contact.phone}} </td>
+            </tr>
+          </tbody>
+    </table>
+</div>
+
+
+<div class="modal fade" id="removeContact" tabindex="-1" role="dialog" aria-labelledby="removeContact" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="removeContact">Delete this contact?</h5>
+        </div>
+        <div class="modal-body">
+            Once you delete this contact there's no way to retrieve. Do you still want to continue?
+        </div>
+        <div class="modal-footer">
+          <button #closeModal type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button btn-light" class="btn btn-light" (click)="removeContact(contact)" >Yes! Delete it.</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+</div>

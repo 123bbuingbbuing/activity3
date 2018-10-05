@@ -1,0 +1,36 @@
+<nav id="navbar" class="navbar fixed-top navbar-expand-sm bg-light navbar-light nav-opacity sticky">
+    
+    <div class="container">
+        <a class="navbar-brand" routerLink="">
+          <img src="https://img00.deviantart.net/5a7b/i/2017/346/e/8/_banner_kang_daniel_by_lucarrelia_by_lucarrelia-dbwi14m.png" class="nav-banner-img" alt="">
+        
+        </a>
+          <div>
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item"
+                      [routerLinkActive]="['active']"
+                      [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="">
+                      Home
+                    </a>
+                  </li>
+                  <li class="nav-item"
+                      [routerLinkActive]="['active']"
+                      [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="gallery">
+                      Gallery
+                    </a>
+                  </li>
+                  <li class="nav-item"
+                      [routerLinkActive]="['active']"
+                      [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="/contact-list">
+                      Contacts
+                    </a>
+                  </li>
+                </ul>
+          </div>
+          
+      </div>
+  </nav>
+  

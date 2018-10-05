@@ -1,0 +1,257 @@
+/* You can add global styles to this file, and also import other style files */
+/* img {
+    display: block;
+    max-width: 200px;;
+    height: 200px;
+  } */
+* {
+  box-sizing: border-box;
+}
+
+.w-30 {
+  width: 30% !important;
+}
+
+.nav-banner-img {
+    display: block;
+    max-width: 100px;;
+    height: auto;
+}
+
+.bg-pink-dan {
+  background-color: #FFF6FE !important;
+}
+
+.btn-pink-dan {
+  color: #212529;
+  background-color: #FFF6FE;
+  border-color: #f8f9fa;
+}
+
+
+.btn-pink-dan:hover {
+  color: #212529;
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+}
+
+.btn-pink-dan:focus, .btn-pink-dan.focus {
+  box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+}
+
+.active-black {
+  background-color:black !important;
+}
+
+.nav-opacity {
+  opacity: 0.75;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.joejin {
+  background-color: #F6FEFF;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-iteration-count: infinite;
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+  0%   {background-color: #F6FEFF;}
+  25%  {background-color: #F6FFFD;}
+  50%  {background-color: #F6FEFF;}
+  100% {background-color: #F8FFF6;}
+}
+
+/* Standard syntax */
+@keyframes example {
+  0%   {background-color: #F6FEFF;}
+  25%  {background-color: #F6FFFD;}
+  50%  {background-color: #F6FEFF;}
+  100% {background-color: #F8FFF6;}
+}
+
+
+
+@media (max-width: 575.98px) { 
+  .visible-xs {
+    /* visibility: visible; */
+    display: inline-block;
+  }
+  .hidden-xs {
+    /* visibility: hidden; */
+    display: none;
+  }
+  .profile-id-card {
+    width: 100% !important;
+  }
+  .contact-img {
+    display: block;
+    max-width: 80%;;
+    height: auto;
+  }
+  .profile-basic-info-container {
+    display: inline;
+    width: 100%;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+  .visible-xs {
+    /* visibility: hidden; */
+    display: none;
+  }
+  .hidden-xs {
+    /* visibility: visible; */
+    display: inline-block;
+  }
+  .profile-id-card {
+    width: 50% !important;
+    float: left;
+  }
+  .profile-basic-info-container {
+    display: inline-block;
+    width: 50%;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+  }
+  .contact-img {
+    display: block;
+    max-width: 200px;;
+    height: 200px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+  .visible-xs {
+    visibility: hidden;
+    display: none;
+  }
+  .hidden-xs {
+    /* visibility: visible; */
+    display: inline-block;
+  }
+  .profile-id-card {
+    width: 35% !important;
+    float: left;
+  }
+  .profile-basic-info-container {
+    display: inline;
+    width: 64%;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+  }
+  .contact-img {
+    display: block;
+    max-width: 200px;;
+    height: 200px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+  .visible-xs {
+    visibility: hidden;
+    display: none;
+  }
+  .hidden-xs {
+    /* visibility: visible; */
+    display: inline-block;
+  }
+  .profile-id-card {
+    width: 35% !important;
+    float: left;
+  }
+  .contact-img {
+    display: block;
+    max-width: 200px;;
+    height: 200px;
+  }
+  .profile-basic-info-container {
+    display: inline;
+    width: 64%;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+  }
+}
+
+@media (min-width: 1200px) { 
+  .visible-xs {
+    visibility: hidden;
+    display: none;
+  }
+  .hidden-xs {
+    /* visibility: visible; */
+    display: inline-block;
+  }
+  .profile-id-card {
+    width: 30% !important;
+    float: left;
+    display: inline-block;
+  }
+  .profile-basic-info-container {
+    display: inline;
+    width: 69%;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+  }
+  .contact-img {
+    display: block;
+    max-width: 200px;;
+    height: 200px;
+  }
+}
+
+
